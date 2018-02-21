@@ -11,22 +11,26 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-public class bankAccount implements Comparable {
+import java.util.*;
+public class bankAccount /*implements Comparable*/ {
 
     public bankAccount(String nm, double amt) {
         name = nm;
         balance = amt;
     }
     public static void writeToFile(String fileName, bankAccount[] bankAccounts) throws IOException {
-            File allBankAccounts = new File(fileName);
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(allBankAccounts));
-            oos.writeObject(bankAccounts);
-            oos.flush();
-            oos.close();
-            //First, let’s modify this puppy so it saves the bankAccount objects (name, deposit) to a .txt file.
-            //When more items are added, ammend to that file.
-        }
+        File allBankAccounts = new File(fileName);
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(allBankAccounts));
+        oos.writeObject(bankAccounts);
+        oos.flush();
+        oos.close();
+        //First, let’s modify this puppy so it saves the bankAccount objects (name, deposit) to a .txt file.
+        //When more items are added, ammend to that file.
+    }
 
+
+    //COMPARETO for the FIRST project:
+    /*
     public int compareTo(Object otherObject) {
         bankAccount otherAccount = (bankAccount) otherObject;
         int retValue;
@@ -41,6 +45,28 @@ public class bankAccount implements Comparable {
         }
         return retValue;
     }
+    */
+
+
+    //COMPARETO for the SECOND project:
+    /*
+    public int compareTo(Object otherObject) {
+        bankAccount otherAccount = (bankAccount) otherObject;
+        int retValue;
+        int compareLetter = name.compareToIgnoreCase(otherAccount.name);
+        if (compareLetter == -1) {
+            retValue = -1;
+        } else {
+            if (compareLetter == 1) {
+                retValue = 1;
+            } else {
+                retValue = 0;
+            }
+        }
+        return retValue;
+    }
+    */
+
 
     public void deposit(double dp) {
         balance = balance + dp;
