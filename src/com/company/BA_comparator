@@ -1,0 +1,26 @@
+package com.company;
+import java.util.*;
+/**
+ * Created by Veronica Lang on 2/20/2018.
+ * this was on 44-4 and 44-5 so uh
+ * is this like the third project b/c im not sure rip
+ */
+public class BA_comparator implements Comparator {
+    public int compare(Object firstObject, Object secondObject){
+        bankAccount ba1 = (bankAccount) firstObject;
+        bankAccount ba2 = (bankAccount) secondObject;
+        int retValue;
+        if(ba1.balance<ba2.balance){
+            retValue = -1;
+        }
+        else{
+            if (ba1.balance>ba2.balance){
+                retValue = 1;
+            }
+            else{
+                retValue = 0;
+            }
+        }
+        return retValue;
+    }
+}
